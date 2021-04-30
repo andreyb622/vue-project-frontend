@@ -12,10 +12,7 @@ export default {
   async fetchBoard({ commit }, id) {
     try {
       const board = await service.getBoard(id);
-      const users = await Promise.all(
-        board.users.map((e) => service.getUsersForBoard(e))
-      ).then((response) => response);
-      commit("setBoard", { board, users });
+      commit("setBoard", board);
     } catch (e) {
       console.log(e);
     }

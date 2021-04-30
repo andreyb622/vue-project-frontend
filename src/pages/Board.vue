@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-    <div>{{}}</div>
     <div class="info">
       <h2 class="board-name light-bg">{{ getBoard.boardName }}</h2>
       <div class="users">
@@ -12,11 +11,11 @@
     </div>
     <div class="board-lists">
       <board-list
-        v-for="boardList in getBoard.boardLists"
+        v-for="boardList in getBoard.boardListId"
         :key="boardList._id"
         :boardListName="boardList.boardListName"
         :id="boardList._id"
-        :cards="boardList.cards"
+        :cards="boardList.cardId"
       >
       </board-list>
     </div>
@@ -34,6 +33,7 @@ export default {
   },
   mounted() {
     this.fetchBoard(this.id);
+    console.log('2123 ', this.getBoard)
   },
   computed: {
     ...mapGetters(["getBoard", "getUsers"]),
