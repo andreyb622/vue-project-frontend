@@ -33,7 +33,6 @@ export default {
   },
   mounted() {
     this.fetchBoard(this.id);
-    console.log('2123 ', this.getBoard)
   },
   computed: {
     ...mapGetters(["getBoard", "getUsers"]),
